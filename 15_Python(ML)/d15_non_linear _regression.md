@@ -1,4 +1,4 @@
-## Explanation of Non-Linear Regression Section (Markdown)
+## Explanation of Non-Linear Regression Section
 
 ### 1. **Applying 2-Degree Non-Linear Transformation on Advertising Data (TV, radio)**
 
