@@ -6,11 +6,11 @@
 
 The core purpose of a regression model is **to predict a target variable (Y)** by learning the best relationship with input features (X) using a function like:
 
-\[
-\hat{y} = w_0 + w_1 x_1 + w_2 x_2 + ... + w_n x_n
-\]
+$$
+\hat{y} = w_0 + w_1 x_1 + w_2 x_2 + \ldots + w_n x_n
+$$
 
-We aim to find the **optimal weights (w)** such that the error between predicted (\(\hat{y}\)) and actual (y) values is minimized.
+We aim to find the **optimal weights (w)** such that the error between predicted ($\hat{y}$) and actual ($y$) values is minimized.
 
 ---
 
@@ -23,14 +23,14 @@ We aim to find the **optimal weights (w)** such that the error between predicted
 
 ### 🔁 Update Rule
 
-\[
+$$
 w = w - \alpha \cdot \frac{\partial E}{\partial w}
-\]
+$$
 
-Where:
-- \( w \): Weight (parameter)
-- \( \alpha \): Learning Rate (step size)
-- \( \frac{\partial E}{\partial w} \): Gradient (partial derivative of error with respect to weight)
+Where:  
+- $w$: Weight (parameter)  
+- $\alpha$: Learning Rate (step size)  
+- $\frac{\partial E}{\partial w}$: Gradient (partial derivative of error with respect to weight)  
 
 ---
 
@@ -69,25 +69,25 @@ print(w0, w1)
 
 ### 🎯 What It Does
 
-- Lasso Regression **adds a penalty** to the standard linear regression loss.
-- The penalty is based on the **absolute value of coefficients (L1 norm)**:
+- It adds a penalty to the standard linear regression loss.
+- This penalty is based on the absolute value of coefficients:
 
-\[
+$$
 \text{Loss} = \text{MSE} + \alpha \cdot \sum |w_i|
-\]
+$$
 
 - This is called **L1 Regularization**.
-- It shrinks less important feature weights toward zero, performing **automatic feature selection**.
+- It shrinks less important feature weights toward zero.
 
 ---
 
 ### ⚙️ Lasso Uses Gradient Descent Too!
 
-- Under the hood, Lasso also uses **gradient descent** to optimize weights, with the L1 penalty included in the loss function.
+- 🔄 Under the hood, Lasso also uses gradient descent to optimize weights — but with the L1 penalty added to the loss function.
 
 ---
 
-### 🧪 Example: Lasso Regression in Scikit-learn
+### 🧪 Example – Lasso Regression in Scikit-learn
 
 ```python
 from sklearn.linear_model import Lasso
@@ -97,7 +97,7 @@ model_lasso.fit(xtrain_l, ytrain_l)
 print(model_lasso.coef_)
 ```
 
-**📉 Output Coefficients Example:**
+**📉 Output Coefficients:**
 
 | Feature                        | Coefficient |
 |---------------------------------|-------------|
@@ -107,7 +107,7 @@ print(model_lasso.coef_)
 | Outlet_Type_Supermarket Type2   | -0.079      |
 | Outlet_Type_Supermarket Type3   | 0.453       |
 
-✅ Lasso **automatically eliminates less useful features** by making their coefficients zero.
+✅ Lasso automatically eliminated less useful features by making their coefficients zero.
 
 ---
 
@@ -116,17 +116,17 @@ print(model_lasso.coef_)
 | Step                | Gradient Descent         | Lasso Regression                |
 |---------------------|-------------------------|---------------------------------|
 | Loss Function       | MSE                     | MSE + L1 penalty (absolute weights) |
-| Optimization        | Gradient Descent        | Gradient Descent (with L1)      |
-| Weight Updates      | Using gradients         | Gradients + shrinkage           |
-| Feature Selection   | ❌ Not possible         | ✅ Sets some weights to 0        |
-| Used In             | Linear/Logistic Reg., NN| Regularized Linear Models       |
+| Optimization Technique | Gradient Descent      | Gradient Descent (modified for L1)      |
+| Weight Updates      | Using gradients         | Using gradients + shrinkage           |
+| Feature Selection   | ❌ Not possible         | ✅ Automatically sets weights to 0        |
+| Used In             | Linear, Logistic Regression, Neural Nets| Regularized Linear Models       |
 
 ---
 
 ## 📊 Visual Analogy
 
-- **Gradient Descent:** Like rolling down a hill to reach the lowest point (minimum error).
-- **Lasso:** Adds a "wall" along the way, forcing the path to ignore unimportant dimensions (features) by setting their weights to zero.
+- Imagine gradient descent as climbing down a hill to reach the lowest point (minimum error).
+- Lasso adds a constraint wall along the path, which forces you to ignore unimportant dimensions (features).
 
 ---
 
@@ -134,8 +134,8 @@ print(model_lasso.coef_)
 
 | Scenario                                     | Use                       |
 |-----------------------------------------------|---------------------------|
-| Reduce overfitting & simplify model           | ✅ Lasso                  |
-| Only minimize prediction error                | Gradient Descent          |
+| Want to reduce overfitting + simplify model   | ✅ Lasso                  |
+| Only need to minimize prediction error        | Gradient Descent          |
 | Deep learning or neural network training      | Gradient Descent          |
 | Feature selection in regression problems      | ✅ Lasso                  |
 
@@ -145,14 +145,14 @@ print(model_lasso.coef_)
 
 | Concept             | Gradient Descent         | Lasso Regression (L1)              |
 |---------------------|-------------------------|------------------------------------|
-| Main Use            | Minimize loss (MSE, etc)| Reduce loss & eliminate features   |
+| Main Use            | Minimizing loss (MSE, cross-entropy) | Reducing loss & eliminating irrelevant features   |
 | Includes penalty?   | ❌ No                   | ✅ Yes (adds L1 penalty)           |
-| Shrinks weights?    | ❌ Only if loss needs   | ✅ Drives small/irrelevant weights to zero |
-| Technique           | Weight updates by grads | Same, + shrinkage logic            |
-| Key Benefit         | Learns best-fit line    | Best-fit + simpler (sparse) model  |
+| Shrinks weights?    | ❌ Only if loss requires it   | ✅ Forces small/irrelevant weights to zero |
+| Technique Used      | Update weights using gradients | Same as GD, but with additional penalty logic            |
+| Key Benefit         | Learns best-fit line    | Learns best-fit + simpler model  |
 
 ---
 
 > **In essence:**  
-> - **Gradient Descent** is the universal optimizer for minimizing errors in ML models.
+> - **Gradient Descent** is the universal optimizer for minimizing errors in ML models.  
 > - **Lasso Regression** is a special case that uses gradient descent, but with L1 penalty, helping in **feature selection** and improved generalization.
