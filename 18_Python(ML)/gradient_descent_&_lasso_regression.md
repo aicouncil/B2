@@ -7,7 +7,7 @@
 The core purpose of a regression model is **to predict a target variable (Y)** by learning the best relationship with input features (X) using a function like:
 
 $$
-\hat{y} = w_0 + w_1 x_1 + w_2 x_2 + \ldots + w_n x_n
+ŷ = w₀ + w₁·x₁ + w₂·x₂ + ... + wₙ·xₙ
 $$
 
 We aim to find the **optimal weights (w)** such that the error between predicted ($\hat{y}$) and actual ($y$) values is minimized.
@@ -24,7 +24,7 @@ We aim to find the **optimal weights (w)** such that the error between predicted
 ### 🔁 Update Rule
 
 $$
-w = w - \alpha \cdot \frac{\partial E}{\partial w}
+w = w - α · ∂E/∂w
 $$
 
 Where:  
@@ -73,7 +73,7 @@ print(w0, w1)
 - This penalty is based on the absolute value of coefficients:
 
 $$
-\text{Loss} = \text{MSE} + \alpha \cdot \sum |w_i|
+Loss = MSE + α · Σ|wᵢ|
 $$
 
 - This is called **L1 Regularization**.
