@@ -11,7 +11,7 @@ Ridge regression is a type of linear regression that includes an L2 penalty. Thi
 
 The cost function for Ridge Regression is:
 \[
-J(\theta) = \text{MSE} + \lambda \sum_{j=1}^{n} \theta_j^2
+Cost_L2 = Cost_original + λ * (sum of squares of weights)
 \]
 - **MSE**: Mean Squared Error (standard error term for regression)
 - **λ (lambda)**: Regularization parameter. Controls the strength of the penalty. Higher λ means more regularization.
