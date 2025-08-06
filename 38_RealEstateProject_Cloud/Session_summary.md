@@ -1,0 +1,9 @@
+The provided meeting notes from August 5, 2025, detail a session where AI Council demonstrated Python virtual environment setup and cloud deployment using Render.
+
+Here's a summary of the key points:
+
+  * **Virtual Environment Setup:** AI Council showed how to create and activate a Python virtual environment, emphasizing the need to delete previous ones to avoid conflicts. They also noted that libraries from the root environment are not present in a new virtual environment.
+  * **Global Installation Issues:** A real estate project ran despite missing virtual environment libraries, which AI Council attributed to Streamlit being globally installed. They advised that typically, `pip install -r requirements.txt` would be needed within the virtual environment.
+  * **Deployment Preparations:** AI Council prepared the application for cloud deployment by creating a separate folder with essential files (pickle files, UI file, requirements file, and the main application file renamed to `app.py`). They also discussed uploading these files to GitHub, stressing the need to create a repository first.
+  * **Cloud Deployment using Render:** The deployment process on Render was demonstrated, including connecting to a GitHub repository and configuring settings like Python language, main branch, and the `streamlit run app.py` start command. It was advised to create a dedicated repository for each project to avoid unnecessary files.
+  * **Troubleshooting Python Version Issues:** During deployment, Render defaulted to Python 3.13, causing errors as the application was developed with Python 3.10. AI Council attempted to specify Python 3.10.0 using a `runtime.txt` file. Sunil and Rehan Siddiqui suggested using Docker images for a more robust solution to prevent such inconsistencies, which AI Council acknowledged as the deployment continued to fail due to the version mismatch.
