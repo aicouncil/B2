@@ -1,0 +1,5 @@
+This document summarizes a meeting from August 13, 2025, at 6:30 PM GMT+05:30. The AI Council discussed neural network basics, including perceptron models and deep neural networks, and how hidden layers and neuron counts affect model parameters, capacity, and performance. They covered training processes like parameter optimization, loss functions, and evaluation metrics, and confirmed that trained models can be used in production.
+
+The meeting also introduced the MNIST digit dataset, explaining its structure (785 columns, 784 features for 28x28 pixel images, and one label column for digits 0-9). The AI Council demonstrated recreating an image from pixel values and addressed technical challenges with Kaggle, opting to download and upload data to Google Drive for more efficient access.
+
+Future steps involve training a handwritten digit recognition model with 784 input neurons, similar to previous training sessions but with a larger input layer. The AI Council will also explain computer vision and then use image data.
